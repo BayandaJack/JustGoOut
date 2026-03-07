@@ -1,0 +1,22 @@
+info:
+  name: POST outing
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: http://localhost:8080/outings
+  body:
+    type: json
+    data: |-
+      {
+        "outingName": "Escape Room",
+        "outingDesc": "Esacpe from the room"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

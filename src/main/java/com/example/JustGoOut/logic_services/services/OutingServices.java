@@ -12,7 +12,7 @@ import java.util.Map;
 @Service
 @Slf4j
 public class OutingServices {
-    private OutingRepo outingRepo;
+    private final OutingRepo outingRepo;
     private int nextId = -1;
 
     public OutingServices(OutingRepo outingRepo){
@@ -24,15 +24,22 @@ public class OutingServices {
         return outingRepo.getOutings();
     }
 
-    public void createOuting(OutingDto outingDto){
+    public Outing createOuting(OutingDto outingDto){
+        nextId++;
         Outing outing = new Outing(
-                nextId++,
+                nextId,
                 outingDto.getOutingName(),
                 outingDto.getOutingDesc(),
                 null
         );
 
-        outingRepo.addOuting(outing.getOutingId(), outing);
+        return outingRepo.addOuting(outing.getOutingId(), outing);
+    }
+
+    public Outing deleteOuting(Integer id){
+        Outing deletedOuting = outingRepo.getOuting(id);
+        outingRepo.deleteOuting(id);
+        return deletedOuting;
     }
 
 }

@@ -10,7 +10,7 @@ import java.util.Map;
 
 @RestController
 public class OutingController {
-    private OutingServices outingServices;
+    private final OutingServices outingServices;
 
     public OutingController(OutingServices outingServices){
         this.outingServices = outingServices;
@@ -22,7 +22,12 @@ public class OutingController {
     }
 
     @PostMapping("/outings")
-    public void createOuting(@RequestBody OutingDto outingDto){
-        outingServices.createOuting(outingDto);
+    public Outing createOuting(@RequestBody OutingDto outingDto){
+        return outingServices.createOuting(outingDto);
+    }
+
+    @DeleteMapping("/outings/{id}")
+    public Outing deleteOuting(Integer id){
+        return outingServices.deleteOuting(id);
     }
 }
