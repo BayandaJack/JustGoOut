@@ -1,0 +1,13 @@
+package com.example.JustGoOut;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class JustGoOutApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(JustGoOutApplication.class, args);
+	}
+
+}
