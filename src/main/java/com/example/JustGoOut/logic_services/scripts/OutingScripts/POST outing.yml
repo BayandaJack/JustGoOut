@@ -10,8 +10,8 @@ http:
     type: json
     data: |-
       {
-        "outingName": "Escape Room",
-        "outingDesc": "Esacpe from the room"
+        "outingName": "Archery",
+        "outingDesc": "Shooting arrows at the target"
       }
   auth: inherit
 

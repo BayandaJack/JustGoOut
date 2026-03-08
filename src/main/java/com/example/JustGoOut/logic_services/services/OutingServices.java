@@ -1,6 +1,7 @@
 package com.example.JustGoOut.logic_services.services;
 
 import com.example.JustGoOut.domain.Outing;
+import com.example.JustGoOut.domain.OutingStatus;
 import com.example.JustGoOut.logic_services.dtos.OutingDto;
 import com.example.JustGoOut.persistence.repos.OutingRepo;
 import lombok.extern.slf4j.Slf4j;
@@ -24,13 +25,22 @@ public class OutingServices {
         return outingRepo.getOutings();
     }
 
+    public Outing getOutingById(Integer id){
+        return outingRepo.getOuting(id);
+    }
+
+    public Map<Integer, Outing> getOutingsByStatus(OutingStatus status){
+        return outingRepo.getOutingsByStatus(status);
+    }
+
     public Outing createOuting(OutingDto outingDto){
         nextId++;
         Outing outing = new Outing(
                 nextId,
                 outingDto.getOutingName(),
                 outingDto.getOutingDesc(),
-                null
+                null,
+                OutingStatus.INCOMPLETE
         );
 
         return outingRepo.addOuting(outing.getOutingId(), outing);
