@@ -2,6 +2,7 @@ package com.example.JustGoOut.persistence.entities;
 
 import com.example.JustGoOut.domain.OutingStatus;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import org.apache.catalina.User;
@@ -11,6 +12,7 @@ import java.time.LocalDate;
 @Data
 @Entity
 @Table(name = "outings")
+@AllArgsConstructor
 public class OutingEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
